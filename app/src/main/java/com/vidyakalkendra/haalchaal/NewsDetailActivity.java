@@ -1,11 +1,14 @@
 package com.vidyakalkendra.haalchaal;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +26,12 @@ public class NewsDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_detail);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
+        Window window = getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(NewsDetailActivity.this, R.color.black));
 
         title = getIntent().getStringExtra("title");
         desc = getIntent().getStringExtra("desc");
